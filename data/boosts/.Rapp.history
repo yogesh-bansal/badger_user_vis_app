@@ -1,0 +1,3093 @@
+bsc_setts$If_Boostable
+matic_setts$If_Boostable
+arbitrum_setts$If_Boostable
+#################################################################################
+## Compare vault Volume around 5 Aug#
+#################################################################################
+## Make a value dataframe over time#
+# time_start <- as_date("2021-04-01")#
+# time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)
+val_time_df
+arbitrum_setts_hist[[1]]
+arbitrum_setts_hist[[2]]
+arbitrum_setts_hist[[3]]
+arbitrum_setts_hist[[4]]
+arbitrum_setts_hist[[5]]
+# time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_ALL_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_ALL_Volume <- apply(do.call(cbind,lapply(BSC_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)
+## Make a value dataframe over time#
+# time_start <- as_date("2021-04-01")#
+# time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)
+val_time_df
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_All_Volume + val_time_df$BSC_All_Volume#
+#
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "months" , date_labels = "%b-%y")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:13)*10^8),labels=c((1:13)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+library(scales)
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_All_Volume + val_time_df$BSC_All_Volume#
+#
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "months" , date_labels = "%b-%y")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:13)*10^8),labels=c((1:13)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+val_time_df
+head(val_time_df)
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_All_Volume + val_time_df$BSC_All_Volume#
+#
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "months" , date_labels = "%b-%y")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:13)*10^8),labels=c((1:13)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+time_start <- as_date("2021-04-01")#
+time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+# time_start <- as_date("2021-07-05")#
+# time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_All_Volume + val_time_df$BSC_All_Volume#
+#
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "months" , date_labels = "%b-%y")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:13)*10^8),labels=c((1:13)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_All_Volume + val_time_df$BSC_All_Volume#
+#
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "months" , date_labels = "%b-%y")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:13)*10^8),labels=c((1:13)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "months" , date_labels = "%b-%y")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:13)*10^8),labels=c((1:13)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "months" , date_labels = "%b-%y")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "months" , date_labels = "%b-%y")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "months" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "3 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "3 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis. text. x = element_text(angle = 90))
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "3 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "2 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c((1:8)*10^8))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "2 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c(paste0("$",100*(1:8),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "2 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c(paste0("$",100*(1:8),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+val_time_df
+# time_start <- as_date("2021-04-01")#
+time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+time_start <- as_date("2021-07-05")#
+# time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)
+val_time_df
+## Make a value dataframe over time#
+# time_start <- as_date("2021-04-01")#
+time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+time_start <- as_date("2021-07-05")#
+# time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_All_Volume + val_time_df$BSC_All_Volume
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "2 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c(paste0("$",100*(1:8),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+val_time_df
+## Make a value dataframe over time#
+# time_start <- as_date("2021-04-01")#
+time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+time_start <- as_date("2021-07-05")#
+# time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_All_Volume + val_time_df$BSC_All_Volume#
+val_time_df <- val_time_df[val_time_df$ETH_All_Volume > 0,]#
+#
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "2 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c(paste0("$",100*(1:8),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+## Make a value dataframe over time#
+time_start <- as_date("2021-04-01")#
+time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+# time_start <- as_date("2021-07-05")#
+# time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_All_Volume + val_time_df$BSC_All_Volume#
+val_time_df <- val_time_df[val_time_df$ETH_All_Volume > 0,]#
+#
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "2 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c(paste0("$",100*(1:8),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))#
+#################################################################################
+#################################################################################
+#
+`https://badger-boost-market-analytics.vercel.app/assets`
+val_time_df
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "2 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:8)*10^8),labels=c(paste0("$",100*(1:8),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c((1:13)*10^8),labels=c(paste0("$",100*(1:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(1,1.5,(2:13)*10^8),labels=c(paste0("$",100*c(1,1.5,2:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(1,1.5,1.8,(2:13)*10^8),labels=c(paste0("$",100*c(1,1.5,1.8,2:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(c(1,1.5,1.8,2:13)*10^8),labels=c(paste0("$",100*c(1,1.5,1.8,2:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(c(1,1.2,1.5,1.8,2:13)*10^8),labels=c(paste0("$",100*c(1,1.2,1.5,1.8,2:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(c(1,1.2,1.5,1.8,2,2.5,3:13)*10^8),labels=c(paste0("$",100*c(1,1.2,1.5,1.8,2,2.5,3:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+## Loading required libraries#
+library(httr)#
+library(jsonlite)#
+library(lubridate)#
+library(dplyr)#
+#
+################################################################
+## Helper functions#
+################################################################
+parse_sett <- function(sett)#
+{#
+	data.frame(#
+				Name = sett$name,#
+				Asset = sett$asset,#
+				Asset_Address = sett$underlyingToken,#
+				Vault_Token = sett$vaultAsset,#
+				Vault_Token_Address = sett$vaultToken,#
+				State = sett$state,#
+				Value = sett$value,#
+				Balance = sett$balance,#
+				Token_Per_Share = sett$ppfs,#
+				APR = sett$apr,#
+				Bouncer = sett$bouncer,#
+				If_Boostable = sett$boostable,#
+				If_Experimental = sett$experimental,#
+				If_Deprecated = sett$deprecated#
+			)#
+}#
+hist_sett <- function(sett_add,sett_net)#
+{#
+	end_date <- today()#
+	start_date <- end_date - days(15)#
+	hist_data <- data.frame()#
+	while(TRUE)#
+	{#
+		hist_data_t <- content(GET(paste0(#
+											"https://api.badger.finance/v2/charts?id=",#
+											sett_add,#
+											"&granularity=day&chain=",#
+											sett_net,#
+											"&start=",#
+											start_date,#
+											"T15%3A19%3A16.772Z&end=",#
+											end_date,#
+											"T15%3A19%3A16.772Z"#
+										)))#
+		hist_data_t <- do.call(rbind,lapply(hist_data_t,function(x) as.data.frame(t(unlist(x)))))#
+		hist_data <- rbind(hist_data,hist_data_t)#
+		if(is.null(nrow(hist_data_t))) break()#
+		if(nrow(hist_data_t)<15) break()#
+		end_date <- start_date#
+		start_date <- end_date - days(15)#
+	}#
+	hist_data <- unique(hist_data)#
+	hist_data$Time <- as_datetime(as.numeric(hist_data$timestamp)/1000)#
+	return(hist_data)#
+}#
+get_price_df <- function(net_id)#
+{#
+	t_data_raw <- content(GET(paste0("https://api.badger.finance/v2/tokens?chain=",net_id)),"parsed")#
+	t_data <- bind_rows(lapply(t_data_raw,function(x) as.data.frame(t(unlist(x)))))#
+	p_data_raw <- content(GET(paste0("https://api.badger.finance/v2/prices?currency=usd&chain=",net_id)),"parsed")#
+	p_data <- data.frame(address=names(p_data_raw),price = unlist(p_data_raw))#
+	row.names(p_data) <- NULL#
+	merge(x = t_data, y = p_data, by = "address", all = TRUE)#
+}#
+################################################################
+################################################################
+#
+## ETH Mainnet#
+eth_setts_raw <- content(GET("https://api.badger.finance/v2/setts?chain=eth&currency=usd"),"parsed")#
+eth_setts <- do.call(rbind,lapply(eth_setts_raw,parse_sett))#
+# eth_setts_hist <- list()#
+# for(idx in 1:nrow(eth_setts))#
+# {#
+# 	eth_setts_hist[[idx]] <- hist_sett(eth_setts$Vault_Token_Address[idx],sett_net="eth")#
+# 	message(idx)#
+# }#
+eth_setts_hist <- mapply(hist_sett,eth_setts$Vault_Token_Address,sett_net="eth",SIMPLIFY=FALSE)#
+eth_prices <- get_price_df("eth")#
+write.csv(eth_setts,"~/Desktop/badger_boost/api_data/eth_setts.csv",row.names=FALSE)#
+write.csv(eth_prices,"~/Desktop/badger_boost/api_data/eth_prices.csv",row.names=FALSE)#
+saveRDS(eth_setts_hist,"~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+## BSC#
+bsc_setts_raw <- content(GET("https://api.badger.finance/v2/setts?chain=bsc&currency=usd"),"parsed")#
+bsc_setts <- do.call(rbind,lapply(bsc_setts_raw,parse_sett))#
+bsc_setts_hist <- mapply(hist_sett,bsc_setts$Vault_Token_Address,sett_net="bsc",SIMPLIFY=FALSE)#
+bsc_prices <- get_price_df("bsc")#
+write.csv(bsc_setts,"~/Desktop/badger_boost/api_data/bsc_setts.csv",row.names=FALSE)#
+write.csv(bsc_prices,"~/Desktop/badger_boost/api_data/bsc_prices.csv",row.names=FALSE)#
+saveRDS(bsc_setts_hist,"~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Matic/Polygon#
+matic_setts_raw <- content(GET("https://api.badger.finance/v2/setts?chain=matic&currency=usd"),"parsed")#
+matic_setts <- do.call(rbind,lapply(matic_setts_raw,parse_sett))#
+matic_setts_hist <- mapply(hist_sett,matic_setts$Vault_Token_Address,sett_net="matic",SIMPLIFY=FALSE)#
+matic_prices <- get_price_df("matic")#
+write.csv(matic_setts,"~/Desktop/badger_boost/api_data/matic_setts.csv",row.names=FALSE)#
+write.csv(matic_prices,"~/Desktop/badger_boost/api_data/matic_prices.csv",row.names=FALSE)#
+saveRDS(matic_setts_hist,"~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Arbitrum#
+arbitrum_setts_raw <- content(GET("https://api.badger.finance/v2/setts?chain=arbitrum&currency=usd"),"parsed")#
+arbitrum_setts <- do.call(rbind,lapply(arbitrum_setts_raw,parse_sett))#
+arbitrum_setts_hist <- mapply(hist_sett,arbitrum_setts$Vault_Token_Address,sett_net="arbitrum",SIMPLIFY=FALSE)#
+arbitrum_prices <- get_price_df("arbitrum")#
+write.csv(arbitrum_setts,"~/Desktop/badger_boost/api_data/arbitrum_setts.csv",row.names=FALSE)#
+write.csv(arbitrum_prices,"~/Desktop/badger_boost/api_data/arbitrum_prices.csv",row.names=FALSE)#
+saveRDS(arbitrum_setts_hist,"~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")#
+#
+## Boost Leaderboard#
+user_boost_leaderboard <- bind_rows(lapply(content(GET("https://api.badger.finance/v2/leaderboards/complete")),function(x) as.data.frame(t(unlist(x)))))#
+write.csv(user_boost_leaderboard,"~/Desktop/badger_boost/api_data/user_boost_leaderboard.csv",row.names=FALSE)
+matic_setts
+apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)
+## Loading libraries#
+library(readr)#
+library(lubridate)#
+library(ggplot2)#
+library(scales)#
+#
+#################################################################################
+## Helper Functions#
+#################################################################################
+## Price Match#
+price_match_sett <- function(date_m,sett_hist)#
+{#
+	match_idx <- match(date_m,as_date(sett_hist$Time))#
+	if(is.na(match_idx)) return(NA)#
+	as.numeric(sett_hist$value[match_idx[1]])#
+}#
+#
+#################################################################################
+#################################################################################
+#
+## Read in ETH data#
+eth_setts <- read_csv("~/Desktop/badger_boost/api_data/eth_setts.csv")#
+eth_prices <- read_csv("~/Desktop/badger_boost/api_data/eth_prices.csv")#
+eth_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+#
+## Read in BSC data#
+bsc_setts <- read_csv("~/Desktop/badger_boost/api_data/bsc_setts.csv")#
+bsc_prices <- read_csv("~/Desktop/badger_boost/api_data/bsc_prices.csv")#
+bsc_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Read in MATIC data#
+matic_setts <- read_csv("~/Desktop/badger_boost/api_data/matic_setts.csv")#
+matic_prices <- read_csv("~/Desktop/badger_boost/api_data/matic_prices.csv")#
+matic_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Read in ARBITRUM data#
+arbitrum_setts <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_setts.csv")#
+arbitrum_prices <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_prices.csv")#
+arbitrum_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")#
+#
+#################################################################################
+## Compare vault Volume around 5 Aug#
+#################################################################################
+## Make a value dataframe over time#
+time_start <- as_date("2021-04-01")#
+time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+# time_start <- as_date("2021-07-05")#
+# time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_Boosted_Volume +#
+                          val_time_df$ETH_Non_Boosted_Volume +#
+                          val_time_df$BSC_Non_Boosted_Volume +#
+                          val_time_df$MATIC_Non_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Non_Boosted_Volume#
+#
+val_time_df <- val_time_df[val_time_df$ETH_All_Volume > 0,]#
+#
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(c(1,1.2,1.5,1.8,2,2.5,3:13)*10^8),labels=c(paste0("$",100*c(1,1.2,1.5,1.8,2,2.5,3:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))#
+#################################################################################
+#################################################################################
+#
+`https://badger-boost-market-analytics.vercel.app/assets`
+## Loading required libraries#
+library(httr)#
+library(jsonlite)#
+library(lubridate)#
+library(dplyr)#
+#
+################################################################
+## Helper functions#
+################################################################
+parse_sett <- function(sett)#
+{#
+	data.frame(#
+				Name = sett$name,#
+				Asset = sett$asset,#
+				Asset_Address = sett$underlyingToken,#
+				Vault_Token = sett$vaultAsset,#
+				Vault_Token_Address = sett$vaultToken,#
+				State = sett$state,#
+				Value = sett$value,#
+				Balance = sett$balance,#
+				Token_Per_Share = sett$ppfs,#
+				APR = sett$apr,#
+				Bouncer = sett$bouncer,#
+				If_Boostable = sett$boostable,#
+				If_Experimental = sett$experimental,#
+				If_Deprecated = sett$deprecated#
+			)#
+}#
+hist_sett <- function(sett_add,sett_net)#
+{#
+	end_date <- today()#
+	start_date <- end_date - days(15)#
+	hist_data <- data.frame()#
+	while(TRUE)#
+	{#
+		hist_data_t <- content(GET(paste0(#
+											"https://api.badger.finance/v2/charts?id=",#
+											sett_add,#
+											"&granularity=day&chain=",#
+											sett_net,#
+											"&start=",#
+											start_date,#
+											"T15%3A19%3A16.772Z&end=",#
+											end_date,#
+											"T15%3A19%3A16.772Z"#
+										)))#
+		hist_data_t <- do.call(rbind,lapply(hist_data_t,function(x) as.data.frame(t(unlist(x)))))#
+		hist_data <- rbind(hist_data,hist_data_t)#
+		if(is.null(nrow(hist_data_t))) break()#
+		if(nrow(hist_data_t)<15) break()#
+		end_date <- start_date#
+		start_date <- end_date - days(15)#
+	}#
+	hist_data <- unique(hist_data)#
+	hist_data$Time <- as_datetime(as.numeric(hist_data$timestamp)/1000)#
+	return(hist_data)#
+}#
+get_price_df <- function(net_id)#
+{#
+	t_data_raw <- content(GET(paste0("https://api.badger.finance/v2/tokens?chain=",net_id)),"parsed")#
+	t_data <- bind_rows(lapply(t_data_raw,function(x) as.data.frame(t(unlist(x)))))#
+	p_data_raw <- content(GET(paste0("https://api.badger.finance/v2/prices?currency=usd&chain=",net_id)),"parsed")#
+	p_data <- data.frame(address=names(p_data_raw),price = unlist(p_data_raw))#
+	row.names(p_data) <- NULL#
+	merge(x = t_data, y = p_data, by = "address", all = TRUE)#
+}#
+################################################################
+################################################################
+#
+## ETH Mainnet#
+eth_setts_raw <- content(GET("https://api.badger.finance/v2/setts?chain=eth&currency=usd"),"parsed")#
+eth_setts <- do.call(rbind,lapply(eth_setts_raw,parse_sett))#
+# eth_setts_hist <- list()#
+# for(idx in 1:nrow(eth_setts))#
+# {#
+# 	eth_setts_hist[[idx]] <- hist_sett(eth_setts$Vault_Token_Address[idx],sett_net="eth")#
+# 	message(idx)#
+# }#
+eth_setts_hist <- mapply(hist_sett,eth_setts$Vault_Token_Address,sett_net="eth",SIMPLIFY=FALSE)#
+eth_prices <- get_price_df("eth")#
+write.csv(eth_setts,"~/Desktop/badger_boost/api_data/eth_setts.csv",row.names=FALSE)#
+write.csv(eth_prices,"~/Desktop/badger_boost/api_data/eth_prices.csv",row.names=FALSE)#
+saveRDS(eth_setts_hist,"~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+## BSC#
+bsc_setts_raw <- content(GET("https://api.badger.finance/v2/setts?chain=bsc&currency=usd"),"parsed")#
+bsc_setts <- do.call(rbind,lapply(bsc_setts_raw,parse_sett))#
+bsc_setts_hist <- mapply(hist_sett,bsc_setts$Vault_Token_Address,sett_net="bsc",SIMPLIFY=FALSE)#
+bsc_prices <- get_price_df("bsc")#
+write.csv(bsc_setts,"~/Desktop/badger_boost/api_data/bsc_setts.csv",row.names=FALSE)#
+write.csv(bsc_prices,"~/Desktop/badger_boost/api_data/bsc_prices.csv",row.names=FALSE)#
+saveRDS(bsc_setts_hist,"~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Matic/Polygon#
+matic_setts_raw <- content(GET("https://api.badger.finance/v2/setts?chain=matic&currency=usd"),"parsed")#
+matic_setts <- do.call(rbind,lapply(matic_setts_raw,parse_sett))#
+matic_setts_hist <- mapply(hist_sett,matic_setts$Vault_Token_Address,sett_net="matic",SIMPLIFY=FALSE)#
+matic_prices <- get_price_df("matic")#
+write.csv(matic_setts,"~/Desktop/badger_boost/api_data/matic_setts.csv",row.names=FALSE)#
+write.csv(matic_prices,"~/Desktop/badger_boost/api_data/matic_prices.csv",row.names=FALSE)#
+saveRDS(matic_setts_hist,"~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Arbitrum#
+arbitrum_setts_raw <- content(GET("https://api.badger.finance/v2/setts?chain=arbitrum&currency=usd"),"parsed")#
+arbitrum_setts <- do.call(rbind,lapply(arbitrum_setts_raw,parse_sett))#
+arbitrum_setts_hist <- mapply(hist_sett,arbitrum_setts$Vault_Token_Address,sett_net="arbitrum",SIMPLIFY=FALSE)#
+arbitrum_prices <- get_price_df("arbitrum")#
+write.csv(arbitrum_setts,"~/Desktop/badger_boost/api_data/arbitrum_setts.csv",row.names=FALSE)#
+write.csv(arbitrum_prices,"~/Desktop/badger_boost/api_data/arbitrum_prices.csv",row.names=FALSE)#
+saveRDS(arbitrum_setts_hist,"~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")#
+#
+## Boost Leaderboard#
+user_boost_leaderboard <- bind_rows(lapply(content(GET("https://api.badger.finance/v2/leaderboards/complete")),function(x) as.data.frame(t(unlist(x)))))#
+write.csv(user_boost_leaderboard,"~/Desktop/badger_boost/api_data/user_boost_leaderboard.csv",row.names=FALSE)
+## Loading libraries#
+library(readr)#
+library(lubridate)#
+library(ggplot2)#
+library(scales)#
+#
+#################################################################################
+## Helper Functions#
+#################################################################################
+## Price Match#
+price_match_sett <- function(date_m,sett_hist)#
+{#
+	match_idx <- match(date_m,as_date(sett_hist$Time))#
+	if(is.na(match_idx)) return(NA)#
+	as.numeric(sett_hist$value[match_idx[1]])#
+}#
+#
+#################################################################################
+#################################################################################
+#
+## Read in ETH data#
+eth_setts <- read_csv("~/Desktop/badger_boost/api_data/eth_setts.csv")#
+eth_prices <- read_csv("~/Desktop/badger_boost/api_data/eth_prices.csv")#
+eth_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+#
+## Read in BSC data#
+bsc_setts <- read_csv("~/Desktop/badger_boost/api_data/bsc_setts.csv")#
+bsc_prices <- read_csv("~/Desktop/badger_boost/api_data/bsc_prices.csv")#
+bsc_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Read in MATIC data#
+matic_setts <- read_csv("~/Desktop/badger_boost/api_data/matic_setts.csv")#
+matic_prices <- read_csv("~/Desktop/badger_boost/api_data/matic_prices.csv")#
+matic_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Read in ARBITRUM data#
+arbitrum_setts <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_setts.csv")#
+arbitrum_prices <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_prices.csv")#
+arbitrum_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")#
+#
+#################################################################################
+## Compare vault Volume around 5 Aug#
+#################################################################################
+## Make a value dataframe over time#
+time_start <- as_date("2021-04-01")#
+time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+# time_start <- as_date("2021-07-05")#
+# time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_Boosted_Volume +#
+                          val_time_df$ETH_Non_Boosted_Volume +#
+                          val_time_df$BSC_Non_Boosted_Volume +#
+                          val_time_df$MATIC_Non_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Non_Boosted_Volume#
+#
+val_time_df <- val_time_df[val_time_df$ETH_All_Volume > 0,]
+val_time_df
+tail(val_time_df)
+apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)
+head(val_time_df)
+val_time_df
+## Loading libraries#
+library(readr)#
+library(lubridate)#
+library(ggplot2)#
+library(scales)#
+#
+#################################################################################
+## Helper Functions#
+#################################################################################
+## Price Match#
+price_match_sett <- function(date_m,sett_hist)#
+{#
+	match_idx <- match(date_m,as_date(sett_hist$Time))#
+	if(is.na(match_idx)) return(NA)#
+	as.numeric(sett_hist$value[match_idx[1]])#
+}#
+#
+#################################################################################
+#################################################################################
+#
+## Read in ETH data#
+eth_setts <- read_csv("~/Desktop/badger_boost/api_data/eth_setts.csv")#
+eth_prices <- read_csv("~/Desktop/badger_boost/api_data/eth_prices.csv")#
+eth_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+#
+## Read in BSC data#
+bsc_setts <- read_csv("~/Desktop/badger_boost/api_data/bsc_setts.csv")#
+bsc_prices <- read_csv("~/Desktop/badger_boost/api_data/bsc_prices.csv")#
+bsc_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Read in MATIC data#
+matic_setts <- read_csv("~/Desktop/badger_boost/api_data/matic_setts.csv")#
+matic_prices <- read_csv("~/Desktop/badger_boost/api_data/matic_prices.csv")#
+matic_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Read in ARBITRUM data#
+arbitrum_setts <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_setts.csv")#
+arbitrum_prices <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_prices.csv")#
+arbitrum_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")#
+#
+#################################################################################
+## Compare vault Volume around 5 Aug#
+#################################################################################
+## Make a value dataframe over time#
+# time_start <- as_date("2021-04-01")#
+# time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_Boosted_Volume +#
+                          val_time_df$ETH_Non_Boosted_Volume +#
+                          val_time_df$BSC_Non_Boosted_Volume +#
+                          val_time_df$MATIC_Non_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Non_Boosted_Volume#
+#
+val_time_df <- val_time_df[val_time_df$ETH_All_Volume > 0,]#
+#
+## Plot#
+ggplot() + #
+  geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(c(1,1.2,1.5,1.8,2,2.5,3:13)*10^8),labels=c(paste0("$",100*c(1,1.2,1.5,1.8,2,2.5,3:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))#
+#################################################################################
+#################################################################################
+#
+`https://badger-boost-market-analytics.vercel.app/assets`
+## Loading libraries#
+library(readr)#
+library(lubridate)#
+library(ggplot2)#
+library(scales)#
+#
+#################################################################################
+## Helper Functions#
+#################################################################################
+## Price Match#
+price_match_sett <- function(date_m,sett_hist)#
+{#
+	match_idx <- match(date_m,as_date(sett_hist$Time))#
+	if(is.na(match_idx)) return(NA)#
+	as.numeric(sett_hist$value[match_idx[1]])#
+}#
+#
+#################################################################################
+#################################################################################
+#
+## Read in ETH data#
+eth_setts <- read_csv("~/Desktop/badger_boost/api_data/eth_setts.csv")#
+eth_prices <- read_csv("~/Desktop/badger_boost/api_data/eth_prices.csv")#
+eth_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+#
+## Read in BSC data#
+bsc_setts <- read_csv("~/Desktop/badger_boost/api_data/bsc_setts.csv")#
+bsc_prices <- read_csv("~/Desktop/badger_boost/api_data/bsc_prices.csv")#
+bsc_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Read in MATIC data#
+matic_setts <- read_csv("~/Desktop/badger_boost/api_data/matic_setts.csv")#
+matic_prices <- read_csv("~/Desktop/badger_boost/api_data/matic_prices.csv")#
+matic_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Read in ARBITRUM data#
+arbitrum_setts <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_setts.csv")#
+arbitrum_prices <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_prices.csv")#
+arbitrum_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")#
+#
+#################################################################################
+## Compare vault Volume around 5 Aug#
+#################################################################################
+## Make a value dataframe over time#
+# time_start <- as_date("2021-04-01")#
+# time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_Boosted_Volume +#
+                          val_time_df$ETH_Non_Boosted_Volume +#
+                          val_time_df$BSC_Non_Boosted_Volume +#
+                          val_time_df$MATIC_Non_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Non_Boosted_Volume#
+#
+val_time_df <- val_time_df[val_time_df$ETH_All_Volume > 0,]#
+#
+## Plot#
+ggplot() + #
+  # geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(c(1,1.2,1.5,1.8,2,2.5,3:13)*10^8),labels=c(paste0("$",100*c(1,1.2,1.5,1.8,2,2.5,3:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))#
+#################################################################################
+#################################################################################
+#
+`https://badger-boost-market-analytics.vercel.app/assets`
+ggplot() + #
+  # geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "2 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(c(1,1.2,1.5,1.8,2,2.5,3:13)*10^8),labels=c(paste0("$",100*c(1,1.2,1.5,1.8,2,2.5,3:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))
+## Loading libraries#
+library(readr)#
+library(lubridate)#
+library(ggplot2)#
+library(scales)#
+#
+#################################################################################
+## Helper Functions#
+#################################################################################
+## Price Match#
+price_match_sett <- function(date_m,sett_hist)#
+{#
+	match_idx <- match(date_m,as_date(sett_hist$Time))#
+	if(is.na(match_idx)) return(NA)#
+	as.numeric(sett_hist$value[match_idx[1]])#
+}#
+#
+#################################################################################
+#################################################################################
+## Read in ETH data#
+eth_setts <- read_csv("~/Desktop/badger_boost/api_data/eth_setts.csv")#
+eth_prices <- read_csv("~/Desktop/badger_boost/api_data/eth_prices.csv")#
+eth_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+#
+## Read in BSC data#
+bsc_setts <- read_csv("~/Desktop/badger_boost/api_data/bsc_setts.csv")#
+bsc_prices <- read_csv("~/Desktop/badger_boost/api_data/bsc_prices.csv")#
+bsc_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Read in MATIC data#
+matic_setts <- read_csv("~/Desktop/badger_boost/api_data/matic_setts.csv")#
+matic_prices <- read_csv("~/Desktop/badger_boost/api_data/matic_prices.csv")#
+matic_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Read in ARBITRUM data#
+arbitrum_setts <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_setts.csv")#
+arbitrum_prices <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_prices.csv")#
+arbitrum_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")#
+#
+#################################################################################
+## Compare vault Volume around 5 Aug#
+#################################################################################
+## Make a value dataframe over time#
+# time_start <- as_date("2021-04-01")#
+# time_end <- as_date(max(as_datetime(sapply(eth_setts_hist,function(x) max(x$Time)))))#
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## BSC#
+val_time_df$BSC_All_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$BSC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(bsc_setts_hist[!bsc_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## MATIC#
+val_time_df$MATIC_Non_Boosted_Volume <- apply(do.call(cbind,lapply(matic_setts_hist[!matic_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## ARBITRUM#
+val_time_df$ARBITRUM_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ARBITRUM_Non_Boosted_Volume <- apply(do.call(cbind,lapply(arbitrum_setts_hist[!arbitrum_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+#
+## All #
+val_time_df$All_Volume <- val_time_df$ETH_Boosted_Volume +#
+                          val_time_df$ETH_Non_Boosted_Volume +#
+                          val_time_df$BSC_Non_Boosted_Volume +#
+                          val_time_df$MATIC_Non_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Boosted_Volume +#
+                          val_time_df$ARBITRUM_Non_Boosted_Volume#
+#
+val_time_df <- val_time_df[val_time_df$ETH_All_Volume > 0,]#
+#
+## Plot#
+ggplot() + #
+  # geom_line(data = val_time_df, aes(x = Date, y = All_Volume), color = "green") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_All_Volume), color = "black") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Boosted_Volume), color = "red") +#
+  geom_line(data = val_time_df, aes(x = Date, y = ETH_Non_Boosted_Volume), color = "blue") +#
+  geom_vline(xintercept=as_date("2021-08-05"),linetype=4, colour="black")+#
+  scale_x_date(date_breaks = "2 days" , date_labels = "%d-%b")+#
+  # scale_y_continuous(trans=log10_trans(),breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+  scale_y_continuous(trans=log10_trans(),breaks=c(c(1,1.2,1.5,1.8,2,2.5,3:13)*10^8),labels=c(paste0("$",100*c(1,1.2,1.5,1.8,2,2.5,3:13),"M")))+#
+  xlab('Date') +#
+  ylab('Vault Volume')+#
+  theme(axis.text.x = element_text(angle = 90))#
+#################################################################################
+#################################################################################
+#
+#################################################################################
+## Token Price Analysis#
+#################################################################################
+## Badger#
+`https://badger-boost-market-analytics.vercel.app/assets`
+shiny::runApp("~/Desktop/badger_boost")
+install.packages("shinydashboard")
+shiny::runApp("~/Desktop/badger_boost")
+eth_setts <- read_csv("~/Desktop/badger_boost/api_data/eth_setts.csv")#
+eth_prices <- read_csv("~/Desktop/badger_boost/api_data/eth_prices.csv")#
+eth_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+#
+## Read in BSC data#
+bsc_setts <- read_csv("~/Desktop/badger_boost/api_data/bsc_setts.csv")#
+bsc_prices <- read_csv("~/Desktop/badger_boost/api_data/bsc_prices.csv")#
+bsc_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Read in MATIC data#
+matic_setts <- read_csv("~/Desktop/badger_boost/api_data/matic_setts.csv")#
+matic_prices <- read_csv("~/Desktop/badger_boost/api_data/matic_prices.csv")#
+matic_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Read in ARBITRUM data#
+arbitrum_setts <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_setts.csv")#
+arbitrum_prices <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_prices.csv")#
+arbitrum_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")
+## Loading libraries#
+library(readr)#
+library(lubridate)#
+library(ggplot2)#
+library(scales)#
+#
+#################################################################################
+## Helper Functions#
+#################################################################################
+## Price Match#
+price_match_sett <- function(date_m,sett_hist)#
+{#
+	match_idx <- match(date_m,as_date(sett_hist$Time))#
+	if(is.na(match_idx)) return(NA)#
+	as.numeric(sett_hist$value[match_idx[1]])#
+}#
+#
+#################################################################################
+#################################################################################
+## Read in ETH data#
+eth_setts <- read_csv("~/Desktop/badger_boost/api_data/eth_setts.csv")#
+eth_prices <- read_csv("~/Desktop/badger_boost/api_data/eth_prices.csv")#
+eth_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+#
+## Read in BSC data#
+bsc_setts <- read_csv("~/Desktop/badger_boost/api_data/bsc_setts.csv")#
+bsc_prices <- read_csv("~/Desktop/badger_boost/api_data/bsc_prices.csv")#
+bsc_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Read in MATIC data#
+matic_setts <- read_csv("~/Desktop/badger_boost/api_data/matic_setts.csv")#
+matic_prices <- read_csv("~/Desktop/badger_boost/api_data/matic_prices.csv")#
+matic_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Read in ARBITRUM data#
+arbitrum_setts <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_setts.csv")#
+arbitrum_prices <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_prices.csv")#
+arbitrum_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df$ETH_All_Volume <- apply(do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(do.call(cbind,lapply(eth_setts_hist[!eth_setts$If_Boostable],function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)),1,sum,na.rm=TRUE)
+val_time_df
+head(cbind(val_time_df,do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date))))
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))
+head(cbind(val_time_df,do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date))))
+eth_setts
+eth_setts$Asser
+eth_setts$Asset
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df <- cbind(val_time_df,do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)))#
+names(val_time_df)[-1] <- eth_setts$Asset
+head(val_time_df)
+val_time_df[,2:22]
+val_time_df
+apply(val_time_df[,2:22],1,sum,na.rm=TRUE)
+eth_setts$If_Boostable
+dim(val_time_df[,2:22][,eth_setts$If_Boostable])
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df <- cbind(val_time_df,do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)))#
+names(val_time_df)[-1] <- eth_setts$Asset#
+val_time_df$ETH_All_Volume <- apply(val_time_df[,2:22],1,sum,na.rm=TRUE)#
+val_time_df$ETH_Boosted_Volume <- apply(val_time_df[,2:22][,eth_setts$If_Boostable],1,sum,na.rm=TRUE)#
+val_time_df$ETH_Non_Boosted_Volume <- apply(val_time_df[,2:22][,!eth_setts$If_Boostable],1,sum,na.rm=TRUE)
+val_time_df
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df <- cbind(val_time_df,do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)))#
+names(val_time_df)[-1] <- eth_setts$Asset#
+val_time_df$All_Vaults <- apply(val_time_df[,2:22],1,sum,na.rm=TRUE)#
+val_time_df$Boosted_Vaults <- apply(val_time_df[,2:22][,eth_setts$If_Boostable],1,sum,na.rm=TRUE)#
+val_time_df$Non_Boosted_Vaults <- apply(val_time_df[,2:22][,!eth_setts$If_Boostable],1,sum,na.rm=TRUE)
+val_time_df
+ldeaths
+shiny::runApp("~/Desktop/badger_boost")
+3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 75 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, name, symbol, type, lookupName, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 3 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 13 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 3 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 21 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 4 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 15 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 21 Columns: 14                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 75 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, name, symbol, type, lookupName, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 3 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 13 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 3 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 21 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 4 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 15 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+shiny::runApp("~/Desktop/badger_boost")
+3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 75 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, name, symbol, type, lookupName, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 3 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 13 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 3 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 21 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 4 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 15 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+val_time_df
+## Loading libraries#
+library(readr)#
+library(lubridate)#
+library(ggplot2)#
+library(scales)#
+#
+#################################################################################
+## Helper Functions#
+#################################################################################
+## Price Match#
+price_match_sett <- function(date_m,sett_hist)#
+{#
+	match_idx <- match(date_m,as_date(sett_hist$Time))#
+	if(is.na(match_idx)) return(NA)#
+	as.numeric(sett_hist$value[match_idx[1]])#
+}#
+#################################################################################
+#################################################################################
+#
+#################################################################################
+#################################################################################
+## Read in ETH data#
+eth_setts <- read_csv("~/Desktop/badger_boost/api_data/eth_setts.csv")#
+eth_prices <- read_csv("~/Desktop/badger_boost/api_data/eth_prices.csv")#
+eth_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/eth_setts_hist.RDS")#
+#
+## Read in BSC data#
+bsc_setts <- read_csv("~/Desktop/badger_boost/api_data/bsc_setts.csv")#
+bsc_prices <- read_csv("~/Desktop/badger_boost/api_data/bsc_prices.csv")#
+bsc_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/bsc_setts_hist.RDS")#
+#
+## Read in MATIC data#
+matic_setts <- read_csv("~/Desktop/badger_boost/api_data/matic_setts.csv")#
+matic_prices <- read_csv("~/Desktop/badger_boost/api_data/matic_prices.csv")#
+matic_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/matic_setts_hist.RDS")#
+#
+## Read in ARBITRUM data#
+arbitrum_setts <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_setts.csv")#
+arbitrum_prices <- read_csv("~/Desktop/badger_boost/api_data/arbitrum_prices.csv")#
+arbitrum_setts_hist <- readRDS("~/Desktop/badger_boost/api_data/arbitrum_setts_hist.RDS")
+time_start <- as_date("2021-07-05")#
+time_end <- as_date("2021-09-05")#
+val_time_df <- data.frame(Date = seq(time_start, time_end, by = "days"))#
+#
+## ETH#
+val_time_df <- cbind(val_time_df,do.call(cbind,lapply(eth_setts_hist,function(x,y) sapply(y,price_match_sett,sett_hist=x),y=val_time_df$Date)))#
+names(val_time_df)[-1] <- eth_setts$Asset#
+val_time_df$All_Vaults <- apply(val_time_df[,2:22],1,sum,na.rm=TRUE)#
+val_time_df$Boosted_Vaults <- apply(val_time_df[,2:22][,eth_setts$If_Boostable],1,sum,na.rm=TRUE)#
+val_time_df$Non_Boosted_Vaults <- apply(val_time_df[,2:22][,!eth_setts$If_Boostable],1,sum,na.rm=TRUE)#
+val_time_df <- val_time_df[val_time_df$All_Vaults > 0,]
+library(xts)
+xts(val_time_df)
+xts(val_time_df,order.by= val_time_df$Date)
+val_time_xts <- xts(val_time_df[,-1],order.by=val_time_df$Date)
+val_time_xts
+shiny::runApp("~/Desktop/badger_boost")
+as_date(today())
+as_date("2021-01-01")
+shiny::runApp("~/Desktop/badger_boost")
+as_date("2021-01-01")
+shiny::runApp("~/Desktop/badger_boost")
+3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 75 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, name, symbol, type, lookupName, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 3 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 13 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 3 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 21 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 4 Columns: 14                                                                                                                                                                                                             #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): Name, Asset, Asset_Address, Vault_Token, Vault_Token_Address, State, Bouncer#
+dbl (4): Value, Balance, Token_Per_Share, APR#
+lgl (3): If_Boostable, If_Experimental, If_Deprecated#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.#
+Rows: 15 Columns: 10                                                                                                                                                                                                            #
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────#
+Delimiter: ","#
+chr (7): address, lookupName, name, symbol, type, vaultToken.address, vaultToken.network#
+dbl (2): decimals, price#
+lgl (1): lpToken#
+#
+ℹ Use `spec()` to retrieve the full column specification for this data.#
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+shiny::runApp("~/Desktop/badger_boost")
+## Loading libraries#
+library(readr)#
+#
+## Read in data#
+user_data <- read_csv("~/Work/Repos/OAG_Github/badger_boost/boosts_users.csv")
+head(user_data)
+sort(table(user_data$User))
+user_data[user_data$User=="0xff3fc772434505abff38eecde3c689d4b0254528",]
+length(unique(user_data$User))
+table(table(user_data$User))
+barplot(user_data$Time)
+hist(user_data$Time)
+hist(user_data$Time,20)
+table(user_data$Time)
+plot(table(user_data$Time))
+table(user_data$Time < as.Date("2021-08-05"))
+as.Date("2021-08-05")
+as_datetime("2021-08-05")
+library(lubridate)
+as_datetime("2021-08-05")
+table(user_data$Time < as_datetime("2021-08-05"))
+table(user_data$Time > as_datetime("2021-08-05"))
+shiny::runApp("~/Work/Repos/OAG_Github/badger_boost")
+## Loading libraries#
+library(readr)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users.csv")#
+user_data_2 <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+#
+## Split based on time#
+user_data_2_spl <- split(user_data_2,user_data_2$Time)#
+#
+library(ggplot2)#
+library(gganimate)#
+ggplot(user_data_2, aes(StakeRatio, StakeRatio))+#
+geom_point() +#
+theme_bw()
+head)user_data_2
+head(user_data_2)
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+    geom_violin() +#
+    scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+    theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      plot.title = element_text(size=11)#
+    ) +#
+    ggtitle("Violin chart") +#
+    xlab("")
+library(viridis)
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+    geom_violin() +#
+    scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+    theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      plot.title = element_text(size=11)#
+    ) +#
+    ggtitle("Violin chart") +#
+    xlab("")
+library(hrbrthemes)
+install.packages("hrbrthemes")
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+    geom_violin() +#
+    scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+    theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      plot.title = element_text(size=11)#
+    ) +#
+    ggtitle("Violin chart") +#
+    xlab("")
+library(hrbrthemes)
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+    geom_violin() +#
+    scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+    theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      plot.title = element_text(size=11)#
+    ) +#
+    ggtitle("Violin chart") +#
+    xlab("")
+## Loading libraries#
+library(readr)#
+library(hrbrthemes)#
+library(viridis)#
+library(ggplot2)#
+#
+## Read in data#
+# user_data <- read_csv("~/Desktop/badger_boost/boosts_users.csv")#
+user_data_2 <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data_2$Time <- as.Factor(user_data_2$Time)#
+#
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_violin() +#
+	scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+	theme_ipsum() +#
+	theme(#
+		legend.position="none",#
+		plot.title = element_text(size=11)#
+	) +#
+	ggtitle("Violin chart") +#
+	xlab("")
+as.factor(user_data_2$Time)
+## Loading libraries#
+library(readr)#
+library(hrbrthemes)#
+library(viridis)#
+library(ggplot2)#
+#
+## Read in data#
+# user_data <- read_csv("~/Desktop/badger_boost/boosts_users.csv")#
+user_data_2 <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data_2$Time <- as.factor(user_data_2$Time)#
+#
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_violin() +#
+	scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+	theme_ipsum() +#
+	theme(#
+		legend.position="none",#
+		plot.title = element_text(size=11)#
+	) +#
+	ggtitle("Violin chart") +#
+	xlab("")
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_violin() +#
+	scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+	theme_ipsum() +#
+	theme(#
+		legend.position="none",#
+		plot.title = element_text(size=11)#
+	) +#
+	ggtitle("Violin chart") +#
+	xlab("")+#
+	scale_y_continuous(trans='log2')
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_violin() +#
+	scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+	theme_ipsum() +#
+	theme(#
+		legend.position="none",#
+		plot.title = element_text(size=11)#
+	) +#
+	ggtitle("Violin chart") +#
+	xlab("")+#
+	scale_y_continuous(trans='log10')
+as.factor(user_data_2$Time)
+## Loading libraries#
+library(readr)#
+library(hrbrthemes)#
+library(viridis)#
+library(ggplot2)#
+#
+## Read in data#
+# user_data <- read_csv("~/Desktop/badger_boost/boosts_users.csv")#
+user_data_2 <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data_2$Time <- as.date(user_data_2$Time)#
+# user_data_2$Time <- as.factor(user_data_2$Time)#
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_violin() +#
+	scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+	theme_ipsum() +#
+	theme(#
+		legend.position="none",#
+		plot.title = element_text(size=11)#
+	) +#
+	ggtitle("Violin chart") +#
+	xlab("")+#
+	scale_y_continuous(trans='log10')
+## Loading libraries#
+library(readr)#
+library(hrbrthemes)#
+library(viridis)#
+library(ggplot2)#
+#
+## Read in data#
+# user_data <- read_csv("~/Desktop/badger_boost/boosts_users.csv")#
+user_data_2 <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data_2$Time <- as.date(user_data_2$Time)#
+user_data_2$Time <- as.factor(user_data_2$Time)#
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_violin() +#
+	scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+	theme_ipsum() +#
+	theme(#
+		legend.position="none",#
+		plot.title = element_text(size=11)#
+	) +#
+	ggtitle("Violin chart") +#
+	xlab("")+#
+	scale_y_continuous(trans='log10')
+## Loading libraries#
+library(readr)#
+library(hrbrthemes)#
+library(viridis)#
+library(ggplot2)#
+#
+## Read in data#
+# user_data <- read_csv("~/Desktop/badger_boost/boosts_users.csv")#
+user_data_2 <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data_2$Time <- as.Date(user_data_2$Time)#
+user_data_2$Time <- as.factor(user_data_2$Time)#
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_violin() +#
+	scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+	theme_ipsum() +#
+	theme(#
+		legend.position="none",#
+		plot.title = element_text(size=11)#
+	) +#
+	ggtitle("Violin chart") +#
+	xlab("")+#
+	scale_y_continuous(trans='log10')
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot() +#
+	scale_y_continuous(trans='log10')
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot() +#
+	scale_y_continuous(trans='log10')+#
+	scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")
+## Loading libraries#
+library(readr)#
+library(hrbrthemes)#
+library(viridis)#
+library(ggplot2)#
+#
+## Read in data#
+# user_data <- read_csv("~/Desktop/badger_boost/boosts_users.csv")#
+user_data_2 <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data_2$Time <- as.Date(user_data_2$Time)#
+# user_data_2$Time <- as.factor(user_data_2$Time)#
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot() +#
+	scale_y_continuous(trans='log10')+#
+	scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot() +#
+	scale_y_continuous(trans='log10')+#
+	scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+coord_flip()
+## Read in data#
+# user_data <- read_csv("~/Desktop/badger_boost/boosts_users.csv")#
+user_data_2 <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data_2$Time <- as.Date(user_data_2$Time)#
+user_data_2$Time <- as.factor(user_data_2$Time)#
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot() +#
+	scale_y_continuous(trans='log10')+#
+	scale_x_date(date_breaks = "5 days" , date_labels = "%d-%b")+coord_flip()
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot() +#
+	scale_y_continuous(trans='log10')+#
+	coord_flip()
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot() +#
+	# scale_y_continuous(trans='log10')+#
+	coord_flip()
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot() +#
+	scale_y_continuous(trans='log2')+#
+	coord_flip()
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot() +#
+	scale_y_continuous(trans='log10')+#
+	coord_flip()
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_violin() +#
+	scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +#
+	theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      plot.title = element_text(size=11)#
+    ) +#
+    ggtitle("Violin chart") +#
+	scale_y_continuous(trans='log10')+#
+	coord_flip()
+ggplot(user_data_2, aes(x=Time, y=StakeRatio)) +#
+	geom_boxplot(notch=TRUE) +#
+	scale_y_continuous(trans='log10')+#
+	coord_flip()
+library(ggridges)
+install.packages("ggridges")
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data$Time <- as.Date(user_data_2$Time)#
+user_data$Time <- as.factor(user_data_2$Time)#
+#
+ggplot(diamonds, aes(x = StakeRatio, y = Time)) +#
+  geom_density_ridges() +#
+  theme_ridges() + #
+  theme(legend.position = "none")
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data$Time <- as.Date(user_data$Time)#
+user_data$Time <- as.factor(user_data$Time)#
+#
+ggplot(user_data_2, aes(x = StakeRatio, y = Time)) +#
+  geom_density_ridges() +#
+  theme_ridges() + #
+  theme(legend.position = "none")
+ggplot(user_data, aes(x = StakeRatio, y = Time)) +#
+  geom_density_ridges() +#
+  theme_ridges() + #
+  theme(legend.position = "none")
+ggplot(user_data, aes(x = StakeRatio, y = Time)) +#
+  geom_density_ridges() +#
+  theme_ridges() +#
+  scale_y_continuous(trans='log10')+#
+  theme(legend.position = "none")
+ggplot(user_data, aes(x = StakeRatio, y = Time)) +#
+  geom_density_ridges() +#
+  theme_ridges() +#
+  scale_x_continuous(trans='log10')+#
+  theme(legend.position = "none")
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+  scale_fill_viridis(name = "Temp. [F]", option = "C") +#
+  labs(title = 'Temperatures in Lincoln NE in 2016') +#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 8)#
+    )
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+library(viridis)#
+library(hrbrthemes)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+  scale_fill_viridis(name = "Temp. [F]", option = "C") +#
+  labs(title = 'Temperatures in Lincoln NE in 2016') +#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 8)#
+    )
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+  scale_fill_viridis(name = "Temp. [F]", option = "C") +#
+  labs(title = 'Temperatures in Lincoln NE in 2016') +#
+  scale_x_continuous(trans='log10')+#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 8)#
+    )
+lincoln_weather
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+  scale_fill_viridis(name = "Temp. [F]", option = "C") +#
+  labs(title = 'Temperatures in Lincoln NE in 2016') +#
+  scale_x_continuous(trans='log10')+#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 8)#
+    )
+head(user_data)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+  scale_fill_viridis(name = "NativeBalance", option = "C") +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')+#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 8)#
+    )
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = 1, rel_min_height = 0.01) +#
+  scale_fill_viridis(name = "NativeBalance", option = "C") +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')+#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 8)#
+    )
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = .9, rel_min_height = 0.01) +#
+  scale_fill_viridis(name = "NativeBalance", option = "C") +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')+#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 8)#
+    )
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+  scale_fill_viridis(name = "NativeBalance", option = "C") +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')+#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 8)#
+    )
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')+#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 8)#
+    )
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = .9, rel_min_height = 0.01) +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')+#
+  scale_fill_cyclical(values = c("blue", "green"))+#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 5)#
+    )
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = .9, rel_min_height = 0.01) +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')+#
+  # scale_fill_cyclical(values = c("blue", "green"))+#
+  theme_ipsum() +#
+    theme(#
+      legend.position="none",#
+      panel.spacing = unit(0.1, "lines"),#
+      strip.text.x = element_text(size = 5)#
+    )
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = .9, rel_min_height = 0.01) +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = .9, rel_min_height = 0.01) +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')+#
+  heme(axis.text.x = element_text(size = 3))
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+  geom_density_ridges_gradient(scale = .9, rel_min_height = 0.01) +#
+  labs(title = "Stake Ratio Change over Time") +#
+  scale_x_continuous(trans='log10')+#
+  theme(axis.text.x = element_text(size = 3))
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = .9, rel_min_height = 0.01) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_continuous(trans='log10')+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = .9, rel_min_height = 0.01) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_continuous(trans='log10')
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = .9, rel_min_height = 0.1) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_continuous(trans='log10')+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_continuous(trans='log10')+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+library(viridis)#
+library(hrbrthemes)#
+library(scales)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data$Time <- as.Date(user_data$Time)#
+user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_continuous(trans='log10',breaks = scales::pretty_breaks(n = 10))+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))#
+	# scale_x_continuous(trans='log10',breaks = scales::pretty_breaks(n = 10))+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+trans_breaks("log10", function(x) 10^x)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = c(.0001,.001,1,100,10000),labels = c(.0001,.001,1,100,10000))+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+lincoln_weather$"Temp. [F]"
+lincoln_weather$`Temp. [F]`
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+		legend.position="none",#
+		panel.spacing = unit(0.1, "lines"),#
+		strip.text.x = element_text(size = 5)#
+	)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 20, angle = 90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+## RidgePlot#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 3, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 5, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Change over Time") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+head(user_data)
+ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Change over Time") +#
+	xlab("Native Balance") +#
+	# scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Change over Time") +#
+	xlab("Native Balance") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Native Balance Spread Change over Time") +#
+	xlab("Native Balance") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+head(user_data)
+ggplot(user_data, aes(x = NonNativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Non Native Balance Spread Change over Time") +#
+	xlab("Non Native Balance") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.1) +#
+	scale_fill_viridis()+#
+	labs(title = "Native Balance Spread Change over Time") +#
+	xlab("Native Balance") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Native Balance Spread Change over Time") +#
+	xlab("Native Balance") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = NonNativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Non Native Balance Spread Change over Time") +#
+	xlab("Non Native Balance") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	scale_y_discrete(limits = rev)+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)
+ggplot(user_data, aes(y = StakeRatio, x = Time, fill = ..y..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	ylab("Stake Ratio") +#
+	scale_y_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.x = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)
+ggplot(user_data, aes(x = Time, y = StakeRatio, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)
+## RidgePlot StakeRatio#
+ggplot(user_data, aes(x = Time, y = StakeRatio, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_y_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+## RidgePlot StakeRatio#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,rotate=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+as.Date(user_data$Time)
+format(as.Date(user_data$Time),"%b-%m")
+format(as.Date(user_data$Time),"%b-%d")
+format(as.Date(user_data$Time),"%d/bd")
+format(as.Date(user_data$Time),"%d/b")
+format(as.Date(user_data$Time),"%d/%b")
+format(as.Date(user_data$Time),"%d/%b")## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+library(viridis)#
+library(hrbrthemes)#
+library(scales)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data$Time <- format(as.Date(user_data$Time),"%d/%b")#
+# user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot StakeRatio#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+library(viridis)#
+library(hrbrthemes)#
+library(scales)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data$Time <- format(as.Date(user_data$Time),"%d/%b")#
+# user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot StakeRatio#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+library(viridis)#
+library(hrbrthemes)#
+library(scales)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data$Time <- format(as.Date(user_data$Time),"%d/%m")#
+# user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot StakeRatio#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+format(as.Date(user_data$Time),"%m-%d-%y")
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")
+format(as.Date(user_data$Time),"%m-%d-%y")
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data$Time <- format(as.Date(user_data$Time),"%m-%d-%y")#
+# user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot StakeRatio#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+user_data <- read_csv("~/Desktop/badger_boost/boosts_users_2.csv")#
+user_data$Time <- as.Date(user_data$Time)#
+user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot StakeRatio#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.05) +#
+	scale_fill_viridis()+#
+	labs(title = "Native Balance Spread Change over Time") +#
+	xlab("Native Balance") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)+#
+	coord_flip()
+## RidgePlot NativeBalance#
+ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 2, rel_min_height = 0.05) +#
+	scale_fill_viridis()+#
+	labs(title = "Native Balance Spread Change over Time") +#
+	xlab("Native Balance") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)+#
+	coord_flip()
+ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 4, rel_min_height = 0.05) +#
+	scale_fill_viridis()+#
+	labs(title = "Native Balance Spread Change over Time") +#
+	xlab("Native Balance") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines"),#
+			strip.text.x = element_text(size = 5)#
+		)+#
+	coord_flip()
+## Loading libraries#
+library(jsonlite)#
+library(lubridate)#
+library(readr)#
+library(dplyr)#
+#
+# ## Read in data#
+# setwd("~/Desktop/badger_user_vis/data/boosts")#
+# file_names <- list.files()#
+# boost_data <- data.frame()#
+# for(idx in 1:length(file_names))#
+# {#
+# 	data_t <- fromJSON(file_names[idx])$userData#
+# 	if(!("stakeRatio" %in% names(data_t[[1]]))) next()#
+# 	data_df <- data.frame(#
+# 							Time = as_datetime(abs(parse_number(file_names[idx]))),#
+# 							User = names(data_t),#
+# 							Boost = sapply(data_t,function(x) x$boost),#
+# 							NativeBalance = sapply(data_t,function(x) x$nativeBalance),#
+# 							NonNativeBalance = sapply(data_t,function(x) x$nonNativeBalance),#
+# 							StakeRatio = sapply(data_t,function(x) x$stakeRatio)#
+# 						)#
+# 	rownames(data_df) <- NULL#
+# 	boost_data <- rbind(boost_data,data_df)#
+# 	message(idx)#
+# 	message(nrow(boost_data))#
+# }#
+# write_csv(boost_data,"~/Desktop/badger_user_vis/data/boosts_users.csv")#
+#
+## Read in data#
+setwd("~/Desktop/badger_user_vis/data/boosts")#
+file_names <- list.files()#
+boost_data <- data.frame()#
+for(idx in 1:length(file_names))#
+{#
+	data_t <- fromJSON(file_names[idx])$userData#
+	if(!("stakeRatio" %in% names(data_t[[1]]))) next()#
+	data_df <- data.frame(#
+							Time = as_datetime(abs(parse_number(file_names[idx]))),#
+							User = names(data_t),#
+							Boost = sapply(data_t,function(x) x$boost),#
+							NativeBalance = sapply(data_t,function(x) x$nativeBalance),#
+							NonNativeBalance = sapply(data_t,function(x) x$nonNativeBalance),#
+							StakeRatio = sapply(data_t,function(x) x$stakeRatio)#
+						)#
+	rownames(data_df) <- NULL#
+	data_df <- data_df[data_df$NativeBalance>0,]#
+	data_df <- data_df[data_df$NonNativeBalance>0,]#
+	boost_data <- rbind(boost_data,data_df)#
+	message(idx)#
+	message(nrow(boost_data))#
+}#
+write_csv(boost_data,"~/Desktop/badger_user_vis/data/boosts_users_2.csv")
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+library(viridis)#
+library(hrbrthemes)#
+library(scales)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_user_vis/data/boosts_users_2.csv")#
+user_data$Time <- as.Date(user_data$Time)#
+user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot StakeRatio#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+## RidgePlot StakeRatio#
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.title=element_text(size=8,face="bold"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(.0001,.01,.1,1,10,100,10000))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.title=element_text(size=8,face="bold"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Stake Ratio Spread Change over Time") +#
+	xlab("Stake Ratio") +#
+	scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(".0001",".01",".1","1","10","100","10000"))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.title=element_text(size=8,face="bold"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+ggplot(user_data, aes(x = NonNativeBalance, y = Time, fill = ..x..)) +#
+	geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+	scale_fill_viridis()+#
+	labs(title = "Non Native Balance Spread Change over Time") +#
+	xlab("Non Native Balance") +#
+	scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+	theme(#
+			axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+			axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+			axis.title=element_text(size=8,face="bold"),#
+			legend.position="none",#
+			panel.spacing = unit(0.1, "lines")#
+		)+#
+	coord_flip()
+library(ggplot2)
+mm
+library(grid)
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+library(viridis)#
+library(hrbrthemes)#
+library(scales)#
+library(grid)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_user_vis/data/boosts_users_2.csv")#
+user_data$Time <- as.Date(user_data$Time)#
+user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot StakeRatio#
+p1 <- ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+		geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+		scale_fill_viridis()+#
+		labs(title = "Stake Ratio Spread Change over Time") +#
+		xlab("Stake Ratio") +#
+		scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(".0001",".01",".1","1","10","100","10000"))+#
+		theme(#
+				axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+				axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+				axis.title=element_text(size=8,face="bold"),#
+				legend.position="none",#
+				panel.spacing = unit(0.1, "lines")#
+			)+#
+		coord_flip()#
+#
+## RidgePlot NativeBalance#
+p2 <- ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+		geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+		scale_fill_viridis()+#
+		labs(title = "Native Balance Spread Change over Time") +#
+		xlab("Native Balance") +#
+		scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+		theme(#
+				axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+				axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+				axis.title=element_text(size=8,face="bold"),#
+				legend.position="none",#
+				panel.spacing = unit(0.1, "lines")#
+			)+#
+		coord_flip()#
+#
+## RidgePlot NonNativeBalance#
+p3 <- ggplot(user_data, aes(x = NonNativeBalance, y = Time, fill = ..x..)) +#
+		geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+		scale_fill_viridis()+#
+		labs(title = "Non Native Balance Spread Change over Time") +#
+		xlab("Non Native Balance") +#
+		scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+		theme(#
+				axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+				axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+				axis.title=element_text(size=8,face="bold"),#
+				legend.position="none",#
+				panel.spacing = unit(0.1, "lines")#
+			)+#
+		coord_flip()#
+#
+grid.newpage()#
+grid.draw(rbind(ggplotGrob(p1), ggplotGrob(p2),ggplotGrob(p3), size = "last"))
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+library(viridis)#
+library(hrbrthemes)#
+library(scales)#
+library(grid)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_user_vis/data/boosts_users_2.csv")#
+user_data$Time <- as.Date(user_data$Time)#
+user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot StakeRatio#
+p1 <- ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+		geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+		scale_fill_viridis()+#
+		labs(title = "Stake Ratio Spread Change over Time") +#
+		xlab("Stake Ratio") +#
+		scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(".0001",".01",".1","1","10","100","10000"))+#
+		theme(#
+				axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+				axis.title.y=element_text(size=8,face="bold"),#
+				axis.text.x = element_blank(),#
+				axis.title.x = element_blank(),#
+				legend.position="none",#
+				panel.spacing = unit(0.1, "lines")#
+			)+#
+		coord_flip()#
+#
+## RidgePlot NativeBalance#
+p2 <- ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+		geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+		scale_fill_viridis()+#
+		labs(title = "Native Balance Spread Change over Time") +#
+		xlab("Native Balance") +#
+		scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+		theme(#
+				axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+				axis.title.y=element_text(size=8,face="bold"),#
+				axis.text.x = element_blank(),#
+				axis.title.x = element_blank(),#
+				legend.position="none",#
+				panel.spacing = unit(0.1, "lines")#
+			)+#
+		coord_flip()#
+#
+## RidgePlot NonNativeBalance#
+p3 <- ggplot(user_data, aes(x = NonNativeBalance, y = Time, fill = ..x..)) +#
+		geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+		scale_fill_viridis()+#
+		labs(title = "Non Native Balance Spread Change over Time") +#
+		xlab("Non Native Balance") +#
+		scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+		theme(#
+				axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+				axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+				axis.title=element_text(size=8,face="bold"),#
+				legend.position="none",#
+				panel.spacing = unit(0.1, "lines")#
+			)+#
+		coord_flip()#
+#
+grid.newpage()#
+grid.draw(rbind(ggplotGrob(p1), ggplotGrob(p2),ggplotGrob(p3), size = "last"))
+## Loading libraries#
+library(readr)#
+library(ggridges)#
+library(ggplot2)#
+library(viridis)#
+library(hrbrthemes)#
+library(scales)#
+library(grid)#
+#
+## Read in data#
+user_data <- read_csv("~/Desktop/badger_user_vis/data/boosts_users_2.csv")#
+user_data$Time <- as.Date(user_data$Time)#
+user_data$Time <- as.factor(user_data$Time)#
+#
+## RidgePlot StakeRatio#
+p1 <- ggplot(user_data, aes(x = StakeRatio, y = Time, fill = ..x..)) +#
+		geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+		scale_fill_viridis()+#
+		# labs(title = "Stake Ratio Spread Change over Time") +#
+		xlab("Stake Ratio") +#
+		scale_x_log10(breaks = c(.0001,.01,.1,1,10,100,10000),labels = c(".0001",".01",".1","1","10","100","10000"))+#
+		theme(#
+				axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+				axis.title.y=element_text(size=8,face="bold"),#
+				axis.text.x = element_blank(),#
+				axis.title.x = element_blank(),#
+				legend.position="none",#
+				panel.spacing = unit(0.1, "lines")#
+			)+#
+		coord_flip()#
+#
+## RidgePlot NativeBalance#
+p2 <- ggplot(user_data, aes(x = NativeBalance, y = Time, fill = ..x..)) +#
+		geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+		scale_fill_viridis()+#
+		# labs(title = "Native Balance Spread Change over Time") +#
+		xlab("Native Balance") +#
+		scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+		theme(#
+				axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+				axis.title.y=element_text(size=8,face="bold"),#
+				axis.text.x = element_blank(),#
+				axis.title.x = element_blank(),#
+				legend.position="none",#
+				panel.spacing = unit(0.1, "lines")#
+			)+#
+		coord_flip()#
+#
+## RidgePlot NonNativeBalance#
+p3 <- ggplot(user_data, aes(x = NonNativeBalance, y = Time, fill = ..x..)) +#
+		geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +#
+		scale_fill_viridis()+#
+		# labs(title = "Non Native Balance Spread Change over Time") +#
+		xlab("Non Native Balance") +#
+		scale_x_log10(breaks = trans_breaks("log10", function(x) 10^x),labels = trans_format("log10", math_format(10^.x)))+#
+		theme(#
+				axis.text.y = element_text(color = "grey20", size = 8, hjust = .5, vjust = .5, face = "plain"),#
+				axis.text.x = element_text(color = "grey20", size = 6,angle=90, hjust = .5, vjust = .5, face = "plain"),#
+				axis.title=element_text(size=8,face="bold"),#
+				legend.position="none",#
+				panel.spacing = unit(0.1, "lines")#
+			)+#
+		coord_flip()#
+#
+grid.newpage()#
+grid.draw(rbind(ggplotGrob(p1), ggplotGrob(p2),ggplotGrob(p3), size = "last"))
